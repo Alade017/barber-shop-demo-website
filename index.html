@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Copperline Barbers — Ibadan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #14110d;
+        --bg2: #1d1811;
+        --panel: #221c14;
+        --cream: #efe7d8;
+        --cream-dim: #c9c0ae;
+        --gold: #c89b3c;
+        --gold-dim: #8a6c2c;
+        --rust: #a23b2e;
+        --muted: #8c8377;
+        --line: #332c22;
+        --r-lg: 14px;
+        --r-sm: 8px;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: env(safe-area-inset-top, 72px);
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--cream);
+        font-family: "Work Sans", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3,
+      .disp {
+        font-family: "Bebas Neue", "Work Sans", Arial, sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        color: var(--cream);
+        margin: 0;
+      }
+      a {
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 4vw, 48px);
+      }
+      .stripe {
+        height: 6px;
+        width: 100%;
+        background: repeating-linear-gradient(
+          -45deg,
+          var(--gold) 0 16px,
+          var(--rust) 16px 32px
+        );
+      }
+      /* ---------- header ---------- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(20, 17, 13, 0.92);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid var(--line);
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px clamp(20px, 4vw, 48px);
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: "Bebas Neue";
+        font-size: 26px;
+        letter-spacing: 0.06em;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+      nav.links {
+        display: flex;
+        gap: 28px;
+        font-size: 14.5px;
+      }
+      nav.links a {
+        text-decoration: none;
+        color: var(--cream-dim);
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+        transition:
+          color 0.15s,
+          border-color 0.15s;
+      }
+      nav.links a:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+      .navcta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px;
+        border-radius: 999px;
+        font-size: 14.5px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .btn:active {
+        transform: scale(0.97);
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: #1a1409;
+      }
+      .btn-gold:hover {
+        background: #dbae49;
+      }
+      .btn-outline {
+        border-color: var(--gold-dim);
+        color: var(--cream);
+      }
+      .btn-outline:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .menutoggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--line);
+        color: var(--cream);
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 20px;
+        line-height: 1;
+      }
+      .menutoggle svg,
+      .btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 96px 0 78px;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        right: -10%;
+        width: 60%;
+        height: 130%;
+        background: repeating-linear-gradient(
+          -45deg,
+          var(--gold) 0 3px,
+          transparent 3px 34px
+        );
+        opacity: 0.15;
+        pointer-events: none;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px;
+        align-items: end;
+        position: relative;
+      }
+      .eyebrow {
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .hero h1 {
+        font-size: clamp(46px, 7vw, 84px);
+        line-height: 0.98;
+      }
+      .hero p.lead {
+        color: var(--cream-dim);
+        font-size: 18px;
+        max-width: 46ch;
+        margin: 22px 0 30px;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 44px;
+      }
+      .stat-row {
+        display: flex;
+        gap: 0;
+        border-top: 1px solid var(--line);
+      }
+      .stat {
+        flex: 1;
+        padding: 18px 18px 0;
+        border-right: 1px solid var(--line);
+      }
+      .stat:last-child {
+        border-right: none;
+      }
+      .stat b {
+        font-family: "Bebas Neue";
+        font-size: 30px;
+        color: var(--gold);
+        display: block;
+      }
+      .stat span {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .hero-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 26px;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .hero-card h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .hero-card p {
+        color: var(--cream-dim);
+        font-size: 14.5px;
+        margin: 0 0 18px;
+      }
+      .cutlist {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 14.5px;
+      }
+      .cutlist li {
+        display: flex;
+        justify-content: space-between;
+        padding: 9px 0;
+        border-top: 1px dashed var(--line);
+        color: var(--cream-dim);
+      }
+      .cutlist li:first-child {
+        border-top: none;
+      }
+      .cutlist b {
+        color: var(--cream);
+        font-weight: 500;
+      }
+
+      /* ---------- section shell ---------- */
+      section {
+        padding: 84px 0;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        margin-bottom: 44px;
+        flex-wrap: wrap;
+      }
+      .section-head h2 {
+        font-size: clamp(34px, 4.4vw, 52px);
+      }
+      .section-head p {
+        color: var(--cream-dim);
+        max-width: 42ch;
+        font-size: 15.5px;
+      }
+      .kicker {
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .alt {
+        background: var(--bg2);
+      }
+
+      /* ---------- about ---------- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .about-grid p {
+        color: var(--cream-dim);
+        font-size: 16px;
+        margin: 0 0 16px;
+      }
+      .feat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .feat {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-sm);
+        padding: 20px;
+      }
+      .feat svg {
+        margin-bottom: 12px;
+      }
+      .feat h3 {
+        font-size: 17px;
+        font-family: "Work Sans";
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .feat p {
+        color: var(--muted);
+        font-size: 13.5px;
+        margin: 0;
+      }
+
+      /* ---------- services ---------- */
+      .svc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .svc {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-sm);
+        padding: 24px;
+        transition: border-color 0.15s;
+      }
+      .svc:hover {
+        border-color: var(--gold-dim);
+      }
+      .svc-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 8px;
+        gap: 10px;
+      }
+      .svc-top h3 {
+        font-family: "Work Sans";
+        font-weight: 600;
+        font-size: 17px;
+      }
+      .svc-top .price {
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 17px;
+        white-space: nowrap;
+      }
+      .svc p {
+        color: var(--muted);
+        font-size: 13.5px;
+        margin: 0 0 10px;
+      }
+      .svc .dur {
+        font-size: 12px;
+        color: var(--muted);
+        border-top: 1px dashed var(--line);
+        padding-top: 10px;
+      }
+      .note {
+        margin-top: 22px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ---------- gallery / menu of cuts ---------- */
+      .cut-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .cut-tile {
+        aspect-ratio: 4/3;
+        border-radius: var(--r-sm);
+        border: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cut-tile img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+      }
+      .cut-tile:hover img {
+        transform: scale(1.05);
+      }
+      .cut-tile::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(20, 17, 13, 0.92),
+          rgba(20, 17, 13, 0.05) 75%
+        );
+      }
+      .cut-tile span,
+      .cut-tile h3 {
+        position: relative;
+        z-index: 1;
+      }
+      .cut-tile span {
+        color: var(--cream-dim);
+        font-size: 12.5px;
+      }
+      .cut-tile h3 {
+        font-size: 26px;
+      }
+
+      /* ---------- testimonials ---------- */
+      .rev-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .rev {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-sm);
+        padding: 26px;
+      }
+      .stars {
+        color: var(--gold);
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+        font-size: 15px;
+      }
+      .rev p {
+        color: var(--cream-dim);
+        font-size: 15px;
+        margin: 0 0 16px;
+      }
+      .rev cite {
+        font-style: normal;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* ---------- booking / contact ---------- */
+      .book-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      form {
+        display: grid;
+        gap: 14px;
+      }
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+      .field label {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .field input,
+      .field select,
+      .field textarea {
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-sm);
+        color: var(--cream);
+        padding: 12px 14px;
+        font-family: "Work Sans";
+        font-size: 14.5px;
+      }
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        outline: 2px solid var(--gold);
+        outline-offset: 1px;
+      }
+      .row2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .loc {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--r-sm);
+        padding: 22px;
+        margin-bottom: 16px;
+      }
+      .loc h3 {
+        font-family: "Work Sans";
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .loc p {
+        color: var(--cream-dim);
+        font-size: 14px;
+        margin: 0 0 4px;
+      }
+      .loc .hrs {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 8px;
+      }
+      iframe.map {
+        width: 100%;
+        height: 230px;
+        border: 0;
+        border-radius: var(--r-sm);
+        filter: grayscale(0.25) contrast(1.05);
+        margin-top: 6px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 34px 0;
+      }
+      .foot-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+      .foot-row a {
+        color: var(--cream-dim);
+        text-decoration: none;
+      }
+
+      #toast {
+        position: fixed;
+        bottom: 22px;
+        left: 50%;
+        transform: translate(-50%, 140%);
+        background: var(--gold);
+        color: #1a1409;
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: transform 0.3s ease;
+        z-index: 100;
+      }
+      #toast.show {
+        transform: translate(-50%, 0);
+      }
+
+      @media (max-width: 880px) {
+        nav.links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          padding: 12px 20px 18px;
+          background: var(--bg2);
+          border-bottom: 1px solid var(--line);
+          flex-direction: column;
+          gap: 0;
+        }
+        nav.links.open {
+          display: flex;
+        }
+        nav.links a {
+          padding: 12px 0;
+          border-bottom: 1px solid var(--line);
+        }
+        nav.links a:last-child {
+          border-bottom: 0;
+        }
+        .menutoggle {
+          display: inline-flex;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .stat-row {
+          flex-wrap: wrap;
+        }
+        .stat {
+          flex: 1 1 33%;
+          border-bottom: 1px solid var(--line);
+          padding-bottom: 14px;
+        }
+        .about-grid,
+        .book-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .feat-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .svc-grid,
+        .cut-grid,
+        .rev-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .row2 {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .svc-grid,
+        .cut-grid,
+        .rev-grid,
+        .feat-grid {
+          grid-template-columns: 1fr;
+        }
+        .stat {
+          flex: 1 1 50%;
+        }
+        .navcta .btn-outline {
+          display: none;
+        }
+        .navcta .btn {
+          padding: 10px 13px;
+          font-size: 13px;
+        }
+        .logo {
+          font-size: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <a
+          class="logo"
+          href="#top"
+          aria-label="Copperline Barbers home"
+          style="text-decoration: none"
+          ><span class="dot"></span>COPPERLINE&nbsp;BARBERS</a
+        >
+        <nav class="links" id="mainNav">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#cuts">Cuts</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#book">Locations</a>
+        </nav>
+        <div class="navcta">
+          <a class="btn btn-outline" href="tel:+2348094172635"
+            ><i data-lucide="phone"></i>Call</a
+          >
+          <a class="btn btn-gold" href="#book">Book a cut</a>
+          <button
+            class="menutoggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mainNav"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="stripe"></div>
+
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Bashorun · Bodija · Akobo, Ibadan</div>
+          <h1>PRECISION<br />FADES,<br />NO WASTED TIME.</h1>
+          <p class="lead">
+            Copperline Barbers keeps Ibadan sharp — steady hands, sterilised
+            tools, and a clean line-up every single visit.
+          </p>
+          <div class="hero-ctas">
+            <a
+              class="btn btn-gold"
+              href="https://wa.me/2348094172635?text=Hi%20Copperline%20Barbers%2C%20I%27d%20like%20to%20book%20a%20cut"
+              target="_blank"
+              rel="noopener"
+              ><i data-lucide="message-circle"></i>Book on WhatsApp</a
+            >
+            <a class="btn btn-outline" href="tel:+2348094172635"
+              ><i data-lucide="phone"></i>Call the shop</a
+            >
+          </div>
+          <div class="stat-row">
+            <div class="stat"><b>4.8★</b><span>Customer rating</span></div>
+            <div class="stat"><b>126+</b><span>Happy clients</span></div>
+            <div class="stat"><b>3</b><span>Ibadan locations</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div>
+            <h3>Today's menu</h3>
+            <p>Walk-ins welcome. Book ahead for guaranteed chair time.</p>
+            <ul class="cutlist">
+              <li><b>Skin Fade</b><span>₦2,500</span></li>
+              <li><b>Full Groom</b><span>₦4,000</span></li>
+              <li><b>Beard Line-Up</b><span>₦1,500</span></li>
+              <li><b>Kids Cut</b><span>₦1,800</span></li>
+            </ul>
+          </div>
+          <a
+            class="btn btn-outline"
+            style="margin-top: 20px; justify-content: center"
+            href="#services"
+            >See full price list</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="kicker">Our story</div>
+          <h2 style="font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px">
+            A Bashorun chair built for the whole city
+          </h2>
+          <p>
+            Copperline Barbers began with one chair in Bashorun and grew through
+            word of mouth: steady hands, clean tools, and a cut that feels like
+            yours.
+          </p>
+          <p>
+            Today, our chairs are also in Bodija and Akobo — same standard, same
+            attention to detail, wherever you sit down.
+          </p>
+          <a class="btn btn-outline" href="#book">Find a location</a>
+        </div>
+        <div class="feat-grid">
+          <div class="feat">
+            <i data-lucide="scissors" aria-hidden="true"></i>
+            <h3>Sharp, steady fades</h3>
+            <p>Trained barbers who take the time to get the blend right.</p>
+          </div>
+          <div class="feat">
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            <h3>Sterilised, every chair</h3>
+            <p>Tools cleaned between every single client — no exceptions.</p>
+          </div>
+          <div class="feat">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>Three Ibadan locations</h3>
+            <p>Bashorun, Bodija and Akobo — pick what's closest.</p>
+          </div>
+          <div class="feat">
+            <i data-lucide="clock-3" aria-hidden="true"></i>
+            <h3>In and out, on time</h3>
+            <p>Book ahead on WhatsApp and skip the wait.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Price list</div>
+            <h2>Services &amp; pricing</h2>
+          </div>
+          <p>
+            Every cut starts with a consultation, ends with a clean line-up.
+            Prices below are a guide — confirm on booking.
+          </p>
+        </div>
+        <div class="svc-grid">
+          <div class="svc">
+            <div class="svc-top">
+              <h3>Regular Cut</h3>
+              <span class="price">₦1,800</span>
+            </div>
+            <p>Clean, classic cut tailored to your style.</p>
+            <div class="dur">≈ 25 min</div>
+          </div>
+          <div class="svc">
+            <div class="svc-top">
+              <h3>Skin Fade</h3>
+              <span class="price">₦2,500</span>
+            </div>
+            <p>Sharp, blended skin fade with crisp edges.</p>
+            <div class="dur">≈ 35 min</div>
+          </div>
+          <div class="svc">
+            <div class="svc-top">
+              <h3>Beard Line-Up</h3>
+              <span class="price">₦1,500</span>
+            </div>
+            <p>Trim, shape and sharpen your beard line.</p>
+            <div class="dur">≈ 15 min</div>
+          </div>
+          <div class="svc">
+            <div class="svc-top">
+              <h3>Kids Cut</h3>
+              <span class="price">₦1,800</span>
+            </div>
+            <p>Patient, gentle cuts for the little ones.</p>
+            <div class="dur">≈ 20 min</div>
+          </div>
+          <div class="svc">
+            <div class="svc-top">
+              <h3>Full Groom</h3>
+              <span class="price">₦4,000</span>
+            </div>
+            <p>Cut, beard sculpt and hot towel finish.</p>
+            <div class="dur">≈ 50 min</div>
+          </div>
+          <div class="svc">
+            <div class="svc-top">
+              <h3>Hair Colour</h3>
+              <span class="price">₦3,000</span>
+            </div>
+            <p>Dye and touch-up, done with care.</p>
+            <div class="dur">≈ 40 min</div>
+          </div>
+        </div>
+        <p class="note">
+          Laundry and manicure services are also available at select locations —
+          ask in-shop.
+        </p>
+      </div>
+    </section>
+
+    <section id="cuts">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">The menu of cuts</div>
+            <h2>Styles we're known for</h2>
+          </div>
+          <p>
+            From a tight taper to a full shape-up, every style is cut to your
+            head, not a template.
+          </p>
+        </div>
+        <div class="cut-grid">
+          <div class="cut-tile">
+            <img
+              src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+              alt="Barber shaping a close fade"
+              loading="lazy"
+            />
+            <span>Signature</span>
+            <h3>Skin Fade</h3>
+          </div>
+          <div class="cut-tile">
+            <img
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+              alt="A barber at work in a classic barbershop"
+              loading="lazy"
+            />
+            <span>Everyday</span>
+            <h3>Taper Cut</h3>
+          </div>
+          <div class="cut-tile">
+            <img
+              src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+              alt="Barber carefully trimming a client's hair"
+              loading="lazy"
+            />
+            <span>Classic</span>
+            <h3>Afro Shape-Up</h3>
+          </div>
+          <div class="cut-tile">
+            <img
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+              alt="Close-up of professional barber tools"
+              loading="lazy"
+            />
+            <span>Detail</span>
+            <h3>Beard Sculpt</h3>
+          </div>
+          <div class="cut-tile">
+            <img
+              src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+              alt="Fresh haircut with a clean outline"
+              loading="lazy"
+            />
+            <span>Family</span>
+            <h3>Kids Cut</h3>
+          </div>
+          <div class="cut-tile">
+            <img
+              src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+              alt="Barber finishing a modern hairstyle"
+              loading="lazy"
+            />
+            <span>Fresh</span>
+            <h3>Hair Colour</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">What Ibadan says</div>
+            <h2>From our local regulars</h2>
+          </div>
+          <p>4.8★ average from over 126 local clients.</p>
+        </div>
+        <div class="rev-grid">
+          <div class="rev">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>
+              Consistent fade and a relaxed atmosphere. Exactly what I want from
+              my regular shop.
+            </p>
+            <cite>— Tobi A.</cite>
+          </div>
+          <div class="rev">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>
+              They listened to what I wanted and got the shape right first time.
+            </p>
+            <cite>— Femi O.</cite>
+          </div>
+          <div class="rev">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>Easy booking, friendly team, and sharp work. I'll be back.</p>
+            <cite>— Kola B.</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="book">
+      <div class="wrap book-grid">
+        <div>
+          <div class="kicker">Book a chair</div>
+          <h2 style="font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px">
+            Reserve your slot
+          </h2>
+          <form id="bookForm">
+            <div class="row2">
+              <div class="field">
+                <label for="name">Name</label
+                ><input id="name" required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label
+                ><input
+                  id="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  required
+                  minlength="7"
+                  maxlength="20"
+                  placeholder="080..."
+                />
+              </div>
+            </div>
+            <div class="row2">
+              <div class="field">
+                <label for="branch">Location</label>
+                <select id="branch">
+                  <option>Bashorun</option>
+                  <option>Bodija</option>
+                  <option>Akobo</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="service">Service</label>
+                <select id="service">
+                  <option>Regular Cut</option>
+                  <option>Skin Fade</option>
+                  <option>Beard Line-Up</option>
+                  <option>Kids Cut</option>
+                  <option>Full Groom</option>
+                  <option>Hair Colour</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="time">Preferred date &amp; time</label
+              ><input id="time" type="datetime-local" />
+            </div>
+            <div class="field">
+              <label for="notes">Notes (optional)</label
+              ><textarea
+                id="notes"
+                rows="3"
+                placeholder="Any style reference or request"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-gold"
+              style="justify-content: center; margin-top: 6px"
+            >
+              <i data-lucide="calendar-check"></i>Send booking via WhatsApp
+            </button>
+          </form>
+        </div>
+        <div>
+          <div class="loc">
+            <h3><i data-lucide="map-pin"></i>Bashorun — Main shop</h3>
+            <p>Suite 8, Cedar Arcade, Bashorun, Ibadan</p>
+            <p class="hrs">
+              Mon–Wed &amp; Fri: 8am–9pm · Thu: 10am–9pm · Sat: 9am–9pm · Sun:
+              4pm–9pm
+            </p>
+            <iframe
+              class="map"
+              title="Map of Bashorun, Ibadan"
+              loading="lazy"
+              src="https://www.google.com/maps?q=Bashorun%2C+Ibadan&output=embed"
+            ></iframe>
+          </div>
+          <div class="loc">
+            <h3><i data-lucide="map-pin"></i>Bodija branch</h3>
+            <p>12 Akinyele Lane, Bodija, Ibadan</p>
+          </div>
+          <div class="loc">
+            <h3><i data-lucide="map-pin"></i>Akobo branch</h3>
+            <p>Shop 4, Maple Court, Akobo, Ibadan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot-row">
+        <div>© <span id="yr"></span> Copperline Barbers, Ibadan.</div>
+        <div style="display: flex; gap: 18px">
+          <a href="tel:+2348094172635">+234 809 417 2635</a>
+          <a href="https://wa.me/2348094172635" target="_blank" rel="noopener"
+            >WhatsApp</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" role="status" aria-live="polite">Opening WhatsApp…</div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      document.getElementById("yr").textContent = new Date().getFullYear();
+      if (window.lucide) lucide.createIcons();
+
+      var menuButton = document.querySelector(".menutoggle");
+      var mainNav = document.getElementById("mainNav");
+      menuButton.addEventListener("click", function () {
+        var isOpen = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+        menuButton.setAttribute("aria-label", "Toggle navigation");
+        mainNav.classList.toggle("open", !isOpen);
+      });
+      mainNav.addEventListener("click", function (event) {
+        if (event.target.closest("a")) {
+          menuButton.setAttribute("aria-expanded", "false");
+          mainNav.classList.remove("open");
+        }
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          menuButton.setAttribute("aria-expanded", "false");
+          mainNav.classList.remove("open");
+        }
+      });
+
+      var dateInput = document.getElementById("time");
+      var now = new Date();
+      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      dateInput.min = now.toISOString().slice(0, 16);
+
+      document
+        .getElementById("bookForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = document.getElementById("name").value.trim();
+          var phone = document.getElementById("phone").value.trim();
+          var branch = document.getElementById("branch").value;
+          var service = document.getElementById("service").value;
+          var time = document.getElementById("time").value;
+          var notes = document.getElementById("notes").value.trim();
+
+          var msg =
+            "Hi Copperline Barbers, I'd like to book a cut.\n" +
+            "Name: " +
+            name +
+            "\n" +
+            "Phone: " +
+            phone +
+            "\n" +
+            "Location: " +
+            branch +
+            "\n" +
+            "Service: " +
+            service +
+            "\n" +
+            (time ? "Preferred time: " + time.replace("T", " ") + "\n" : "") +
+            (notes ? "Notes: " + notes : "");
+
+          var url =
+            "https://wa.me/2348094172635?text=" + encodeURIComponent(msg);
+
+          var toast = document.getElementById("toast");
+          toast.classList.add("show");
+          setTimeout(function () {
+            toast.classList.remove("show");
+          }, 2500);
+
+          window.open(url, "_blank", "noopener");
+        });
+    </script>
+  </body>
+</html>
