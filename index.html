@@ -566,6 +566,32 @@
         font-size: 13px;
         margin-top: 8px;
       }
+      .loc-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 12px;
+        font-size: 13px;
+      }
+      .loc-contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--cream-dim);
+        text-decoration: none;
+      }
+      .loc-contact a:hover {
+        color: var(--gold);
+      }
+      .loc-contact svg {
+        width: 15px;
+        height: 15px;
+      }
+      .demo-note {
+        color: var(--muted);
+        font-size: 12px;
+        margin: 0 0 14px;
+      }
       iframe.map {
         width: 100%;
         height: 230px;
@@ -706,7 +732,7 @@
           <a href="#book">Locations</a>
         </nav>
         <div class="navcta">
-          <a class="btn btn-outline" href="tel:+2348094172635"
+          <a class="btn btn-outline" href="tel:+2340000000141"
             ><i data-lucide="phone"></i>Call</a
           >
           <a class="btn btn-gold" href="#book">Book a cut</a>
@@ -728,7 +754,7 @@
     <section class="hero" id="top">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Bashorun · Bodija · Akobo, Ibadan</div>
+          <div class="eyebrow">Oluyole · Jericho · Moniya, Ibadan</div>
           <h1>PRECISION<br />FADES,<br />NO WASTED TIME.</h1>
           <p class="lead">
             Copperline Barbers keeps Ibadan sharp — steady hands, sterilised
@@ -737,12 +763,12 @@
           <div class="hero-ctas">
             <a
               class="btn btn-gold"
-              href="https://wa.me/2348094172635?text=Hi%20Copperline%20Barbers%2C%20I%27d%20like%20to%20book%20a%20cut"
+              href="https://wa.me/2340000000141?text=Hi%20Copperline%20Barbers%2C%20I%27d%20like%20to%20book%20a%20cut"
               target="_blank"
               rel="noopener"
               ><i data-lucide="message-circle"></i>Book on WhatsApp</a
             >
-            <a class="btn btn-outline" href="tel:+2348094172635"
+            <a class="btn btn-outline" href="tel:+2340000000141"
               ><i data-lucide="phone"></i>Call the shop</a
             >
           </div>
@@ -778,16 +804,16 @@
         <div>
           <div class="kicker">Our story</div>
           <h2 style="font-size: clamp(30px, 4vw, 44px); margin-bottom: 18px">
-            A Bashorun chair built for the whole city
+            An Oluyole chair built for the whole city
           </h2>
           <p>
-            Copperline Barbers began with one chair in Bashorun and grew through
+            Copperline Barbers began with one chair in Oluyole and grew through
             word of mouth: steady hands, clean tools, and a cut that feels like
             yours.
           </p>
           <p>
-            Today, our chairs are also in Bodija and Akobo — same standard, same
-            attention to detail, wherever you sit down.
+            Today, our chairs are also in Jericho and Moniya — same standard,
+            same attention to detail, wherever you sit down.
           </p>
           <a class="btn btn-outline" href="#book">Find a location</a>
         </div>
@@ -805,7 +831,7 @@
           <div class="feat">
             <i data-lucide="map-pin" aria-hidden="true"></i>
             <h3>Three Ibadan locations</h3>
-            <p>Bashorun, Bodija and Akobo — pick what's closest.</p>
+            <p>Oluyole, Jericho and Moniya — pick what's closest.</p>
           </div>
           <div class="feat">
             <i data-lucide="clock-3" aria-hidden="true"></i>
@@ -963,7 +989,7 @@
             <div class="kicker">What Ibadan says</div>
             <h2>From our local regulars</h2>
           </div>
-          <p>4.8★ average from over 126 local clients.</p>
+          <p>Sample feedback from Copperline regulars.</p>
         </div>
         <div class="rev-grid">
           <div class="rev">
@@ -1020,9 +1046,15 @@
               <div class="field">
                 <label for="branch">Location</label>
                 <select id="branch">
-                  <option>Bashorun</option>
-                  <option>Bodija</option>
-                  <option>Akobo</option>
+                  <option value="Oluyole" data-whatsapp="2340000000141">
+                    Oluyole
+                  </option>
+                  <option value="Jericho" data-whatsapp="2340000000276">
+                    Jericho
+                  </option>
+                  <option value="Moniya" data-whatsapp="2340000000389">
+                    Moniya
+                  </option>
                 </select>
               </div>
               <div class="field">
@@ -1059,27 +1091,61 @@
           </form>
         </div>
         <div>
+          <p class="demo-note">Fictional demo locations and contact numbers.</p>
           <div class="loc">
-            <h3><i data-lucide="map-pin"></i>Bashorun — Main shop</h3>
-            <p>Suite 8, Cedar Arcade, Bashorun, Ibadan</p>
+            <h3><i data-lucide="map-pin"></i>Oluyole — Main shop</h3>
+            <p>Unit 14, Copper Court, Oluyole Estate, Ibadan</p>
             <p class="hrs">
               Mon–Wed &amp; Fri: 8am–9pm · Thu: 10am–9pm · Sat: 9am–9pm · Sun:
               4pm–9pm
             </p>
+            <div class="loc-contact">
+              <a href="tel:+2340000000141"
+                ><i data-lucide="phone"></i>+234 000 000 0141</a
+              >
+              <a
+                href="https://wa.me/2340000000141"
+                target="_blank"
+                rel="noopener"
+                ><i data-lucide="message-circle"></i>WhatsApp</a
+              >
+            </div>
             <iframe
               class="map"
-              title="Map of Bashorun, Ibadan"
+              title="Map of Oluyole Estate, Ibadan"
               loading="lazy"
-              src="https://www.google.com/maps?q=Bashorun%2C+Ibadan&output=embed"
+              src="https://www.google.com/maps?q=Oluyole+Estate%2C+Ibadan&amp;output=embed"
             ></iframe>
           </div>
           <div class="loc">
-            <h3><i data-lucide="map-pin"></i>Bodija branch</h3>
-            <p>12 Akinyele Lane, Bodija, Ibadan</p>
+            <h3><i data-lucide="map-pin"></i>Jericho branch</h3>
+            <p>6 Lantern Street, Jericho, Ibadan</p>
+            <div class="loc-contact">
+              <a href="tel:+2340000000276"
+                ><i data-lucide="phone"></i>+234 000 000 0276</a
+              >
+              <a
+                href="https://wa.me/2340000000276"
+                target="_blank"
+                rel="noopener"
+                ><i data-lucide="message-circle"></i>WhatsApp</a
+              >
+            </div>
           </div>
           <div class="loc">
-            <h3><i data-lucide="map-pin"></i>Akobo branch</h3>
-            <p>Shop 4, Maple Court, Akobo, Ibadan</p>
+            <h3><i data-lucide="map-pin"></i>Moniya branch</h3>
+            <p>Suite 3, Orchard Walk, Moniya, Ibadan</p>
+            <div class="loc-contact">
+              <a href="tel:+2340000000389"
+                ><i data-lucide="phone"></i>+234 000 000 0389</a
+              >
+              <a
+                href="https://wa.me/2340000000389"
+                target="_blank"
+                rel="noopener"
+                ><i data-lucide="message-circle"></i>WhatsApp</a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -1089,8 +1155,8 @@
       <div class="wrap foot-row">
         <div>© <span id="yr"></span> Copperline Barbers, Ibadan.</div>
         <div style="display: flex; gap: 18px">
-          <a href="tel:+2348094172635">+234 809 417 2635</a>
-          <a href="https://wa.me/2348094172635" target="_blank" rel="noopener"
+          <a href="tel:+2340000000141">+234 000 000 0141</a>
+          <a href="https://wa.me/2340000000141" target="_blank" rel="noopener"
             >WhatsApp</a
           >
         </div>
@@ -1136,7 +1202,9 @@
           e.preventDefault();
           var name = document.getElementById("name").value.trim();
           var phone = document.getElementById("phone").value.trim();
-          var branch = document.getElementById("branch").value;
+          var branchSelect = document.getElementById("branch");
+          var branch = branchSelect.value;
+          var branchWhatsApp = branchSelect.selectedOptions[0].dataset.whatsapp;
           var service = document.getElementById("service").value;
           var time = document.getElementById("time").value;
           var notes = document.getElementById("notes").value.trim();
@@ -1159,7 +1227,10 @@
             (notes ? "Notes: " + notes : "");
 
           var url =
-            "https://wa.me/2348094172635?text=" + encodeURIComponent(msg);
+            "https://wa.me/" +
+            branchWhatsApp +
+            "?text=" +
+            encodeURIComponent(msg);
 
           var toast = document.getElementById("toast");
           toast.classList.add("show");
